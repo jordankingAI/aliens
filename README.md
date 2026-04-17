@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
 [![Tests](https://img.shields.io/badge/tests-958%20passing-brightgreen)](#testing)
+[![CI](https://github.com/jordankingAI/aliens/actions/workflows/tests.yml/badge.svg)](https://github.com/jordankingAI/aliens/actions/workflows/tests.yml)
 
 ALIENS is a hybrid deterministic-LLM system for adaptive reading instruction. It takes a single canonical source passage, generates learner-appropriate variants that preserve the same protected meaning units and lesson-critical vocabulary, and diagnoses each learner's reading outcome to guide the next cycle. It operates in English and Spanish and includes a dedicated extension for learners with dyslexia.
 
@@ -119,7 +120,7 @@ Candidates with only surface-measure warnings (FK outside tolerance, length devi
 ### Installation
 
 ```bash
-git clone https://github.com/jordanking/aliens.git
+git clone https://github.com/jordankingAI/aliens.git
 cd aliens
 python test_alien.py           # 389 tests
 python test_alien_es.py        # 184 tests

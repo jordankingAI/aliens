@@ -15,4 +15,6 @@
 !test_system.py
 !PRODUCTION_READINESS_REPORT.md
 !CLAUDE.md
+!.github/
+!.github/**
 !.gitignore

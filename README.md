@@ -63,6 +63,7 @@ aliens/
 ├── SECURITY.md
 ├── ALIEN_API_INTEGRATION_GUIDE.md
 ├── PRODUCTION_READINESS_REPORT.md
+├── DESIGN_JUSTIFICATION.md
 └── LICENSE
 ```
 
@@ -399,6 +400,8 @@ ALIENS implements five evidence-based instructional design principles:
 3. **Scaffolding and Gradual Release** (Wood, Bruner & Ross, 1976; Pearson & Gallagher, 1983) — `support_dependence` tracking and the withdrawal pathway through `well_calibrated` cycles.
 4. **Formative Assessment for Learning** (Black & Wiliam, 1998; Wiliam, 2011) — the six-item diagnostic, seven diagnosis labels, and immediate deterministic state update.
 5. **Curriculum Coherence / Shared Content Principle** (Schmidt et al., 2005; Porter, 2002) — the canonical passage contract ensures every learner variant covers the same meaning units, in the same sequence, with the same required vocabulary.
+
+For the full theoretical justification, empirical basis, and mapping of each principle to specific system components, see [DESIGN_JUSTIFICATION.md](DESIGN_JUSTIFICATION.md).
 
 ---
 

@@ -1,4 +1,4 @@
-# ALIEN — API Integration Guide & LLM Backend Reference
+# ALIENS — API Integration Guide & LLM Backend Reference
 
 All code in this guide has been executed against `alien_system.py` and
 `alien_system_es.py`. Every example is importable and runnable as shown.
@@ -7,7 +7,7 @@ All code in this guide has been executed against `alien_system.py` and
 
 ## Part 1 — The Single Integration Point
 
-ALIEN communicates with any LLM through exactly one method. This is the
+ALIENS communicates with any LLM through exactly one method. This is the
 complete interface:
 
 ```python
@@ -16,12 +16,12 @@ class LLMBackend(Protocol):
         """
         Send system_prompt + user_prompt to the LLM.
         Parse the response as JSON and return the dict.
-        Raise any exception on failure — ALIEN handles it at the stage level.
+        Raise any exception on failure — ALIENS handles it at the stage level.
         """
         ...
 ```
 
-ALIEN calls `complete_json` **six times per full reading cycle**: four times
+ALIENS calls `complete_json` **six times per full reading cycle**: four times
 during `prepare_cycle` and twice during `complete_cycle`.
 
 | Phase | Task key | Call # |
@@ -40,8 +40,8 @@ routes responses in tests.
 
 Your implementation must:
 - Send both prompts to the LLM and return the parsed response dict
-- Raise any exception on failure — ALIEN catches at the stage level
-- Never pre-validate the JSON — ALIEN does that
+- Raise any exception on failure — ALIENS catches at the stage level
+- Never pre-validate the JSON — ALIENS does that
 - Never modify either prompt string
 
 ---
@@ -123,7 +123,7 @@ class OpenAIBackend:
 
     response_format={"type": "json_object"} enforces JSON output and
     eliminates the need to strip markdown fences. Requires the system
-    prompt to mention JSON output — which ALIEN's prompts already do.
+    prompt to mention JSON output — which ALIENS's prompts already do.
     """
 
     def __init__(
@@ -254,7 +254,7 @@ class RetryingBackend:
     Does not retry on ALIENError — those are schema failures that retrying
     the identical call will not fix. Retries on network errors, rate limits,
     and provider 5xx responses, which surface as provider-SDK exceptions
-    before ALIEN's validators run.
+    before ALIENS's validators run.
     """
 
     def __init__(
@@ -388,7 +388,7 @@ the LLM's role; the user prompt contains the structured data for that call.
 non-empty, all MUs have id and text, sequence constraints reference known
 MU ids, vocabulary terms have term field.
 
-**Note:** ALIEN always overwrites the echoed `source_text` with the
+**Note:** ALIENS always overwrites the echoed `source_text` with the
 original. The LLM's echo is discarded and never trusted.
 
 ---
@@ -523,7 +523,7 @@ assessment package, and the learner's raw response text.
 **Validator:** `validate_retell_score_json()` — both scores present and
 are non-boolean integers, `raw_score <= max_score`, `raw_score >= 0`.
 
-**Automatic fallback:** If this call fails for any reason, ALIEN activates
+**Automatic fallback:** If this call fails for any reason, ALIENS activates
 a deterministic keyword scorer, logs a `WARNING`, and the cycle completes
 normally.
 
@@ -552,7 +552,7 @@ reading signals.
 Any other value causes `DiagnosisLabel.from_value()` to raise, triggering
 the fallback.
 
-**Automatic fallback:** If this call fails, ALIEN activates the deterministic
+**Automatic fallback:** If this call fails, ALIENS activates the deterministic
 decision tree in `DeterministicEngine.diagnose_fallback()`, logs a `WARNING`,
 and the cycle completes normally.
 

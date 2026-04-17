@@ -33,8 +33,9 @@ Initial public release.
 - `test_alien_es.py` — 184 tests, Spanish engine
 - `test_alien_dyslexia.py` — 132 tests, dyslexia extension
 - `test_fixes.py` — 86 tests, fix regression suite
+- `test_system.py` — 167 tests, system integration (full EN and ES pipelines end-to-end)
 
-**Total: 791 tests, all passing.**
+**Total: 958 tests, all passing.**
 
 ### Architecture
 

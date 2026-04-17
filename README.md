@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
-[![Tests](https://img.shields.io/badge/tests-791%20passing-brightgreen)](#testing)
+[![Tests](https://img.shields.io/badge/tests-958%20passing-brightgreen)](#testing)
 
 ALIENS is a hybrid deterministic-LLM system for adaptive reading instruction. It takes a single canonical source passage, generates learner-appropriate variants that preserve the same protected meaning units and lesson-critical vocabulary, and diagnoses each learner's reading outcome to guide the next cycle. It operates in English and Spanish and includes a dedicated extension for learners with dyslexia.
 
@@ -48,21 +48,24 @@ Every learner reads about the same events, encounters the same required vocabula
 
 ```
 aliens/
-├── alien_system.py          # Core engine — English        (2,349 lines)
-├── alien_system_es.py       # Spanish edition              (2,867 lines)
-├── alien_dyslexia.py        # Dyslexia extension module      (897 lines)
-├── test_alien.py            # English test suite  — 389 tests
-├── test_alien_es.py         # Spanish test suite  — 184 tests
-├── test_alien_dyslexia.py   # Dyslexia test suite — 132 tests
-├── test_fixes.py            # Fix regression suite — 86 tests
+├── alien_system.py              # Core engine — English        (2,349 lines)
+├── alien_system_es.py           # Spanish edition              (2,867 lines)
+├── alien_dyslexia.py            # Dyslexia extension module      (897 lines)
+├── test_alien.py                # English test suite  — 389 tests
+├── test_alien_es.py             # Spanish test suite  — 184 tests
+├── test_alien_dyslexia.py       # Dyslexia test suite — 132 tests
+├── test_fixes.py                # Fix regression suite  — 86 tests
+├── test_system.py               # System integration test — 167 tests
 ├── README.md
 ├── CONTRIBUTING.md
 ├── CHANGELOG.md
 ├── SECURITY.md
+├── ALIEN_API_INTEGRATION_GUIDE.md
+├── PRODUCTION_READINESS_REPORT.md
 └── LICENSE
 ```
 
-**Total: 10,139 lines across seven Python files. 791 tests, all passing. Standard library only — no external dependencies.**
+**Total: 11,253 lines across eight Python files. 958 tests, all passing. Standard library only — no external dependencies.**
 
 ---
 
@@ -122,6 +125,7 @@ python test_alien.py           # 389 tests
 python test_alien_es.py        # 184 tests
 python test_alien_dyslexia.py  # 132 tests
 python test_fixes.py           #  86 tests
+python test_system.py          # 167 tests — full system integration
 ```
 
 ### Minimal usage — English
@@ -315,8 +319,9 @@ python test_alien.py           # 389 tests — full English engine
 python test_alien_es.py        # 184 tests — full Spanish engine
 python test_alien_dyslexia.py  # 132 tests — dyslexia extension
 python test_fixes.py           #  86 tests — fix regression suite
+python test_system.py          # 167 tests — system integration (EN + ES pipelines end-to-end)
 
-# Total: 791 tests. Standard library only. No test runner required.
+# Total: 958 tests. Standard library only. No test runner required.
 ```
 
 The fix regression suite covers five specific repairs validated against the bugs discovered during end-to-end simulation:

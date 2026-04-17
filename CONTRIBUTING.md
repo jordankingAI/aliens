@@ -7,7 +7,7 @@ Thank you for your interest in contributing. ALIENS is an adaptive literacy syst
 ## Before you start
 
 - Read the [README](README.md) fully, particularly the [How it works](README.md#how-it-works) and [Deployment guidance](README.md#deployment-guidance) sections.
-- Run all four test suites and confirm 791/791 pass before making any changes.
+- Run all five test suites and confirm 958/958 pass before making any changes.
 - Check open issues before opening a new one — many edge cases have documented histories.
 
 ---
@@ -86,7 +86,7 @@ Documentation improvements are welcome without the constraints above. Correction
 
 Before submitting:
 
-- [ ] All four existing test suites pass: 389 + 184 + 132 + 86 = 791 tests.
+- [ ] All five existing test suites pass: 389 + 184 + 132 + 86 + 167 = 958 tests.
 - [ ] New tests added for any new behaviour or bug fix.
 - [ ] Both EN and ES modules patched if the change affects shared logic.
 - [ ] `CHANGELOG.md` updated with a brief description of the change under the `[Unreleased]` heading.
